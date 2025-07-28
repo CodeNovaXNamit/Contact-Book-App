@@ -8,7 +8,22 @@
 4. Edit a contact
 5. Exit
 '''
+import json
+import os
+# this loads the contact from current folder to python handle
+def load_contacts():
+    if os.path.exists("contacts.json"):
+        with open("contacts.json") as f:
+            return json.load(f)
+    return {}
 
+# saving the contact
+def save_contacts(contact):
+    with open("contacts.json", "w") as f:
+        json.dump(contact, f)
+
+
+# showing the menu
 def show_menu():
     print("\n----Contact Book----")
     print("1. Add a contact")     
@@ -17,23 +32,45 @@ def show_menu():
     print("4. Edit a contact")
     print("5. Exit ")
 
+# adding the contact
 def add_contact():
+    global contact_book
     name=input("Enter the name: ")
-    number=int("Enter the number: ")
-
+    number=int(input("Enter the number: "))
     contact_book[name]=[number]
+    save_contacts(contact_book)
+    print("Contact Saved")
 
+# Function for View the contacts
 
+def view_contact():
+    contacts=load_contacts()
+    if not contacts:
+        print("No contact is found")
+    else:
+        for name, number in contacts.items():
+            print(f"{name} :{', '.join(map(str, number))}")
+
+# search function which searches contacts by name:
+
+def search():
+    contacts=load_contacts()
     
 
-    
-contact_book={}
+
+#  Start of the code:-    
+contact_book=load_contacts()
 
 while True:
     show_menu()
-    choice=int(input(" Enter your choice from 1 to 5"))
+    choice=int(input(" Enter your choice from 1 to 5: "))
 
     if choice == 1:
-        add_contact
+        add_contact()
+
+    if choice == 2:
+        view_contact()
+    if choice == 3:
+        search()
 
 
