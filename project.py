@@ -60,6 +60,7 @@ def search():
     contact_lower={key.lower(): value for key,value in contacts.items()}
     print(f"{name}: {contact_lower.get(name_lower, "Not exist")}")
 
+# Editing the contacts details
 def edit():
     contacts=load_contacts()
     dec=int(input('''
@@ -84,7 +85,6 @@ while True:
 
     if choice == 1:
         add_contact()
-
     if choice == 2:
         view_contact()
     if choice == 3:
