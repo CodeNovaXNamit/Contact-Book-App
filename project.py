@@ -55,8 +55,25 @@ def view_contact():
 
 def search():
     contacts=load_contacts()
-    
+    name=input("Enter the name: ")
+    name_lower=name.lower()
+    contact_lower={key.lower(): value for key,value in contacts.items()}
+    print(f"{name}: {contact_lower.get(name_lower, "Not exist")}")
 
+def edit():
+    contacts=load_contacts()
+    dec=int(input('''
+Enter:
+1. Edit Name
+2. Edit Number
+3. Exit
+:-> '''))
+    if dec==1:
+        name=input("Enter the name: ")
+        name_lower=name.lower()
+        contact_lower={key.lower(): value for key,value in contacts.items()}
+    if dec==3:
+        exit()
 
 #  Start of the code:-    
 contact_book=load_contacts()
@@ -72,5 +89,8 @@ while True:
         view_contact()
     if choice == 3:
         search()
-
+    if choice==4:
+        edit()
+    if choice==5:
+        True
 
