@@ -41,7 +41,8 @@ def add_contact():
     save_contacts(contact_book)
     print("Contact Saved")
 
-# Function for View the contacts
+
+# Function for View the contacts:
 
 def view_contact():
     contacts=load_contacts()
@@ -60,7 +61,7 @@ def search():
     contact_lower={key.lower(): value for key,value in contacts.items()}
     print(f"{name}: {contact_lower.get(name_lower, "Not exist")}")
 
-# Editing the contacts details
+# Editing the contacts details:
 def edit():
     contacts=load_contacts()
     dec=int(input('''
