@@ -72,8 +72,12 @@ Enter:
 :-> '''))
     if dec==1:
         name=input("Enter the name: ")
-        name_lower=name.lower()
+        name_lower=name.lower()0
         contact_lower={key.lower(): value for key,value in contacts.items()}
+        new_name=input("Enter the new name: ")
+        contacts.values[name]=[new_name]
+        #new_name=input("Enter the new name: ")
+
     if dec==3:
         exit()
 
