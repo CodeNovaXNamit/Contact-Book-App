@@ -74,8 +74,12 @@ Enter:
         name=input("Enter the name: ")
         name_lower=name.lower()
         contact_lower={key.lower(): value for key,value in contacts.items()}
-        new_name=input("Enter the new name: ")
-        contacts.values[name]=[new_name]
+        if name_lower in contact_lower:
+            print("Contact is found, Give the change-> ")
+        else:
+            print("Not Found")
+        
+        
         #new_name=input("Enter the new name: ")
 
     if dec==3:
