@@ -87,8 +87,19 @@ Enter:
             print("Not Found")
         
         #new_name=input("Enter the new name: ")
-
-    if dec==3:
+    elif dec==2:
+        name=input("Enter the name: ")
+        name_lower=name.lower()
+        if name_lower in contact_lower:
+            print("Contact is found, Give the change-> ")
+            new_number=input("Enter new name: ")
+            contacts[name]=[new_number]
+            print(contacts)
+            save_contacts(contacts)
+            print("Contact is saved")
+        else:
+            print("Not Found")
+    elif dec==3:
         exit
 
 #  Start of the code:-    
