@@ -63,6 +63,7 @@ def search():
 
 # Editing the contacts details:
 def edit():
+    global contacts
     contacts=load_contacts()
     dec=int(input('''
 Enter:
@@ -73,17 +74,22 @@ Enter:
     if dec==1:
         name=input("Enter the name: ")
         name_lower=name.lower()
-        contact_lower={key.lower(): value for key,value in contacts.items()}
+        contact_lower={key.lower():key for key,value in contacts.items()}
         if name_lower in contact_lower:
+            old_name=contact_lower[name_lower]
             print("Contact is found, Give the change-> ")
+            new_name=input("Enter new name: ")
+            contacts[new_name]=contacts.pop(old_name)
+            print(contacts)
+            save_contacts(contacts)
+            print("Contact is saved")
         else:
             print("Not Found")
-        
         
         #new_name=input("Enter the new name: ")
 
     if dec==3:
-        exit()
+        exit
 
 #  Start of the code:-    
 contact_book=load_contacts()
