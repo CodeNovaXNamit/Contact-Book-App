@@ -93,10 +93,11 @@ Enter:
         contact_lower={key.lower():key for key,value in contacts.items()}
         if name_lower in contact_lower:
             old_name=contact_lower[name_lower]
+            print(old_name)
             print("Contact is found, Give the change-> ")
-            new_name=input("Enter new name: ")
-            contacts[new_name]=contacts.pop(old_name)
-            print(contacts)
+            new_number=input(f"Enter new number for {name} ")
+            contacts[old_name]=new_number
+            print(f"Updated {contacts}")
             save_contacts(contacts)
             print("Contact is saved")
         else:
@@ -105,6 +106,9 @@ Enter:
     elif dec==3:
         exit
 
+# deleting the contact from the dictionary
+def delete():
+    
 #  Start of the code:-    
 contact_book=load_contacts()
 
@@ -121,5 +125,7 @@ while True:
     if choice==4:
         edit()
     if choice==5:
+        delete()
+    if choice==6:
         True
 
