@@ -90,15 +90,18 @@ Enter:
     elif dec==2:
         name=input("Enter the name: ")
         name_lower=name.lower()
+        contact_lower={key.lower():key for key,value in contacts.items()}
         if name_lower in contact_lower:
+            old_name=contact_lower[name_lower]
             print("Contact is found, Give the change-> ")
-            new_number=input("Enter new name: ")
-            contacts[name]=[new_number]
+            new_name=input("Enter new name: ")
+            contacts[new_name]=contacts.pop(old_name)
             print(contacts)
             save_contacts(contacts)
             print("Contact is saved")
         else:
             print("Not Found")
+
     elif dec==3:
         exit
 
