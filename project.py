@@ -101,7 +101,7 @@ Enter:
             save_contacts(contacts)
             print("Contact is saved")
         else:
-            print("Not Found")
+            print("Not Found, Try with different name")
 
     elif dec==3:
         exit
